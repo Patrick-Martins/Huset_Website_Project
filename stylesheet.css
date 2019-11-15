@@ -1,0 +1,221 @@
+html {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0px;
+    color: white;
+    text-align: center;
+}
+
+h1,
+p {
+    color: white;
+}
+
+body {
+    background: black;
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    color: white;
+    list-style: none;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+.events_tab:hover, .about_tab:hover{
+    cursor: pointer;
+}
+
+#events_tab {
+    color: black;
+    background: white;
+}
+
+#about_tab {
+    color: black;
+    background: white;
+}
+
+#events_tab_active {
+    color: #86FF9D;
+}
+
+#about_tab_active {
+    color: #8A7BFF;
+}
+
+#events_tab,
+#about_tab {
+    font-size: 20px;
+}
+
+main {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+
+
+.sortingElem {
+    text-align: center;
+    border: solid white;
+    border-radius: 10px;
+    margin: 10px;
+
+    width: 50%;
+}
+.sortingElem:hover{
+    cursor: pointer;
+}
+
+.sortingElem li {
+    font-size: 18px;
+}
+
+.arrow {
+    width: 30%;
+    height: auto;
+    margin: auto;
+}
+
+
+.sort-container {
+    flex-direction: column;
+    position: absolute;
+    margin: auto;
+    padding: 10px 0 10px 0px;
+    width: 100%;
+    min-height: 100px;
+    background: white;
+    border-radius: 10px;
+}
+
+.sort-container li {
+    color: black;
+}
+
+#activity-container,
+#options-about-container {
+    display: none;
+}
+
+/*
+div {
+    text-align: center;
+    color: white;
+    background: black;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 90%;
+    border-radius: 100px;
+}
+*/
+
+#activity {
+    color: white;
+    background: black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/*------------------------------------------------each event*/
+
+#event-container {
+    width: 90%;
+    margin: auto;
+
+    display: grid;
+    grid-gap: 20px 0px;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+        "event_image event_image"
+        "date-container event_price"
+        "description-container description-container";
+
+    margin-bottom: 35px;
+}
+
+#event_image {
+    grid-area: event_image;
+    width: ;
+    margin: auto;
+}
+
+
+#date-container {
+    display: flex;
+    background: #C5FCC3;
+    justify-content: center;
+    max-width: 200px;
+    border-radius: 5px;
+
+
+    grid-area: date-container;
+}
+
+#event_date {}
+
+#event_price {
+    color: #E58B8B;
+    display: flex;
+    justify-content: center;
+
+    grid-area: event_price;
+}
+
+
+#description-container {
+    grid-area: description-container;
+}
+
+#description-container p {
+    /*    background-color: aqua;*/
+    margin: 0;
+}
+
+#description-container a {
+    display: inline-block;
+    /*    background-color: red;*/
+    padding: 0;
+    text-decoration: none;
+    color: white;
+}
+
+#event_title {
+    margin: 0;
+}
+
+#description-container p {
+    margin: 0;
+    padding: 0;
+    color: gainsboro;
+
+}
+
+img {}
