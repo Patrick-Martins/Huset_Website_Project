@@ -181,7 +181,7 @@ function addLink(oneCategory) {
     //document.querySelector("nav").innerHTML += oneItem.name
     //    if (oneCategory.parent === 14 && oneCategory.count > 0) {
     const link = document.createElement("a");
-    link.textContent = oneCategory.name;
+    link.textContent = oneCategory.name.toUpperCase();
     link.setAttribute("href", "index.html?category=" + oneCategory.id)
     document.querySelector(".sort-container").appendChild(link);
     //    }
