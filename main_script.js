@@ -140,21 +140,23 @@ function init() {
 
 
 
-    const eventsTAB = document.querySelector(".events_tab");
-    const aboutTAB = document.querySelector(".about_tab");
+    const eventsTAB = document.querySelector(".events");
+    const aboutTAB = document.querySelector(".about");
 
     const about = urlParams.get("about");
 
     eventsTAB.addEventListener("click", function () {
         //so that the about parameter doesnt disappear in case the user clicks to refresh
-        window.location.href = "index.html?about=" + about;
+        window.location.href = "index.html";
     });
     aboutTAB.addEventListener("click", function () {
-        if (about) {
-            window.location.href = about;
-        } else {
-            window.location.href = "about.html?events=" + window.location.href;
-        }
+
+        window.location.href = "about.html";
+//        if (about) {
+//            window.location.href = about + "?events=index.html?category=" + category;
+//        } else {
+//            window.location.href = "about.html?events=index.html?category=" + category;
+//        }
     });
 
 
@@ -239,10 +241,7 @@ function showPost(event) {
     //3 textcontent & innerHTML
 
     const a = eventCopy.querySelector("a");
-    a.href = "sub_script.html?id=" + event.id + "&about=" + about;
-
-    //    const content=eventCopy.querySelector("section");
-    //    content.innerHTML=event.content.rendered;
+    a.href = "sub_script.html?id=" + event.id;
 
 
     const eventImage = eventCopy.querySelector("img");
@@ -255,7 +254,7 @@ function showPost(event) {
 
 
     const eventDate = eventCopy.querySelector("#event_date");
-    eventDate.textContent = `${event.event_date} at ${event.event_time}`;
+    eventDate.textContent = `${event.event_date} at ${(event.event_time).slice(0, -3)}`;
 
     console.log("this is the time" + event.event_time)
 
@@ -273,7 +272,7 @@ function showPost(event) {
 
 
     //4 append
-    document.querySelector("#events").appendChild(eventCopy);
+    document.querySelector("#events_main").appendChild(eventCopy);
 }
 
 

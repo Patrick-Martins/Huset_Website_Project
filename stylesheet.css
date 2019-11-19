@@ -11,9 +11,23 @@ header {
     text-align: center;
 }
 
+.huset_logo{
+    color: blue;
+    width: 10%;
+}
+
 h1,
 p {
     color: white;
+}
+
+h1,
+h2,
+p,
+a,
+li {
+    font-family: Avenir Next;
+    font-size: 14px;
 }
 
 body {
@@ -42,35 +56,43 @@ li {
     margin: auto;
 }
 
-.pink_highlight{
+.pink_highlight {
     color: #E58B8B;
 }
 
 .events_tab:hover,
-.about_tab:hover {
+.about_tab:hover,
+events_tab_active:hover,
+about_tab_active:hover {
     cursor: pointer;
 }
 
-#events_tab {
+.events_tab {
     color: black;
     background: white;
 }
 
-#about_tab {
+.about_tab {
     color: black;
     background: white;
 }
 
-#events_tab_active {
+.events_tab_active {
     color: #86FF9D;
+    background: black;
 }
 
-#about_tab_active {
+.about_tab_active {
     color: #8A7BFF;
+    background: black;
 }
 
-#events_tab,
-#about_tab {
+.events_tab,
+.about_tab{
+    font-size: 15px;
+}
+.about_tab_active,
+.events_tab_active {
     font-size: 20px;
 }
 
@@ -86,7 +108,7 @@ main {
     text-align: center;
     border: solid white;
     border-radius: 10px;
-    margin: 10px;
+    margin: 20px;
 
     width: 50%;
 }
@@ -96,7 +118,7 @@ main {
 }
 
 .arrow {
-    width: 30%;
+    width: 20%;
 }
 
 
@@ -115,7 +137,8 @@ main {
     color: black;
 }
 
-.sort-container li, .sort-container a {
+.sort-container li,
+.sort-container a {
     color: black;
     list-style: none;
     text-decoration: none;
@@ -124,6 +147,7 @@ main {
     margin: 5px auto;
     border: solid black;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 
@@ -145,7 +169,8 @@ div {
 }
 */
 
-#activity, #about_BT {
+#activity,
+#about_BT {
     color: white;
     background: black;
 
@@ -191,6 +216,7 @@ div {
     display: flex;
     background: #C5FCC3;
     justify-content: center;
+    align-items: center;
     max-width: 200px;
     border-radius: 5px;
 
@@ -198,12 +224,18 @@ div {
     grid-area: date-container;
 }
 
-#event_date {}
+#event_date {
+    color: black;
+    font-weight: 500;
+}
+
 
 #event_price {
+    font-size: 17px;
     color: #E58B8B;
     display: flex;
     justify-content: center;
+    font-weight: 700;
 
     grid-area: event_price;
 }
