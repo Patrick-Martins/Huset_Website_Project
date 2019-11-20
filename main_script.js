@@ -123,6 +123,9 @@ function init() {
     const id = urlParams.get("id");
     const category = urlParams.get("category");
 
+
+
+
     if (search) { //if search has a value (I get results from the search)
         getSearchData();
     } else if (id) { //if id has a value
@@ -152,11 +155,11 @@ function init() {
     aboutTAB.addEventListener("click", function () {
 
         window.location.href = "about.html";
-//        if (about) {
-//            window.location.href = about + "?events=index.html?category=" + category;
-//        } else {
-//            window.location.href = "about.html?events=index.html?category=" + category;
-//        }
+        //        if (about) {
+        //            window.location.href = about + "?events=index.html?category=" + category;
+        //        } else {
+        //            window.location.href = "about.html?events=index.html?category=" + category;
+        //        }
     });
 
 
@@ -184,7 +187,9 @@ function addLink(oneCategory) {
     //    if (oneCategory.parent === 14 && oneCategory.count > 0) {
     const link = document.createElement("a");
     link.textContent = oneCategory.name.toUpperCase();
-    link.setAttribute("href", "index.html?category=" + oneCategory.id)
+    link.setAttribute("href", "index.html?category=" + oneCategory.id);
+    link.setAttribute("id", "categoryid" + oneCategory.id);
+    console.log("CATEGORY ID is categoryid" + oneCategory.id)
     document.querySelector(".sort-container").appendChild(link);
     //    }
 }
@@ -206,7 +211,8 @@ function getFrontpageData() { //fetch all the default data
 }
 
 function getCategoryData(catId) { //fetch all the category data
-    console.log(catId)
+    console.log("THIS IS A CATEGORY " + catId)
+
     fetch("http://liatalony.com/liatalony/wp-json/wp/v2/event?_embed&categories=" + catId)
         .then(res => res.json())
         .then(handleData)
@@ -232,6 +238,16 @@ function handleData(myData) {
 function showPost(event) {
     const urlParams = new URLSearchParams(window.location.search);
     const about = urlParams.get("about");
+    const category = urlParams.get("category");
+
+    if (category) {
+        const categoryid = document.querySelector(".sort-container #categoryid" + category);
+        console.log("categoryid + CATEGORY = " + "categoryid" + category)
+        console.log("ELEMENT " + document.getElementById("categoryid14"))
+        console.log("CATEGORYIDDDDDDDD is " + categoryid);
+        categoryid.classList.add('active_option');
+    }
+
     console.log(event);
 
     //2 clone a template

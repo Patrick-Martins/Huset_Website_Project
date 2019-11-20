@@ -11,7 +11,7 @@ header {
     text-align: center;
 }
 
-.huset_logo{
+.huset_logo {
     color: blue;
     width: 10%;
 }
@@ -62,8 +62,8 @@ li {
 
 .events_tab:hover,
 .about_tab:hover,
-events_tab_active:hover,
-about_tab_active:hover {
+.events_tab_active:hover,
+.about_tab_active:hover {
     cursor: pointer;
 }
 
@@ -88,9 +88,10 @@ about_tab_active:hover {
 }
 
 .events_tab,
-.about_tab{
+.about_tab {
     font-size: 15px;
 }
+
 .about_tab_active,
 .events_tab_active {
     font-size: 20px;
@@ -148,6 +149,11 @@ main {
     border: solid black;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.sort-container .active_option {
+    background: black;
+    color: white;
 }
 
 
