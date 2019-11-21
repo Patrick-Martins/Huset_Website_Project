@@ -283,3 +283,13 @@ img {}
 
 
 /*sub_page*/
+
+
+
+/*about_page*/
+
+
+.about-text-container h2{
+    margin-bottom: 0;
+    color: white;
+}
