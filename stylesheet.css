@@ -1,11 +1,12 @@
 html {
+    font-size: 100px;
     padding: 0;
     margin: 0;
 }
 
 header {
     font-weight: bold;
-    font-size: 20px;
+    font-size: .2rem;
     margin-bottom: 0px;
     color: white;
     text-align: center;
@@ -27,7 +28,7 @@ p,
 a,
 li {
     font-family: Avenir Next;
-    font-size: 14px;
+    font-size: .14rem;
 }
 
 body {
@@ -89,12 +90,12 @@ li {
 
 .events_tab,
 .about_tab {
-    font-size: 15px;
+    font-size: .15rem;
 }
 
 .about_tab_active,
 .events_tab_active {
-    font-size: 20px;
+    font-size: .2rem;
 }
 
 main {
@@ -201,7 +202,7 @@ div {
     margin: auto;
 
     display: grid;
-    grid-gap: 20px 0px;
+    grid-gap: 10px;
     grid-template-columns: 50% 50%;
     grid-template-areas:
         "event_image event_image"
@@ -237,7 +238,7 @@ div {
 
 
 #event_price {
-    font-size: 17px;
+    font-size: .17rem;
     color: #E58B8B;
     display: flex;
     justify-content: center;
@@ -249,11 +250,14 @@ div {
 
 #description-container {
     grid-area: description-container;
+    display: flex;
+    flex-direction: column;
 }
 
 #description-container p {
     /*    background-color: aqua;*/
     margin: 0;
+    padding: 0;
 }
 
 #description-container a {

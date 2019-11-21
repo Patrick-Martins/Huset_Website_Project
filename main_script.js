@@ -72,14 +72,14 @@ function addLink(oneCategory) {
     //    }
 }
 
-//function getSearchData(){
-//  const urlParams = new URLSearchParams(window.location.search);
-//  const search = urlParams.get("search");
-//
-//  fetch("https://kea-alt-del.dk/t9_2019_autumn/wp-json/wp/v2/book?_embed&search="+search)
-//    .then(res=>res.json())
-//    .then(handleData)
-//}
+function getSearchData(){
+  const urlParams = new URLSearchParams(window.location.search);
+  const search = urlParams.get("search");
+
+  fetch("http://liatalony.com/liatalony/wp-json/wp/v2/event?_embed&search="+search)
+    .then(res=>res.json())
+    .then(handleData)
+}
 
 function getFrontpageData() { //fetch all the default data
     console.log("getData");
