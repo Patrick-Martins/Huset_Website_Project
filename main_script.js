@@ -72,13 +72,13 @@ function addLink(oneCategory) {
     //    }
 }
 
-function getSearchData(){
-  const urlParams = new URLSearchParams(window.location.search);
-  const search = urlParams.get("search");
+function getSearchData() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const search = urlParams.get("search");
 
-  fetch("http://liatalony.com/liatalony/wp-json/wp/v2/event?_embed&search="+search)
-    .then(res=>res.json())
-    .then(handleData)
+    fetch("http://liatalony.com/liatalony/wp-json/wp/v2/event?_embed&search=" + search)
+        .then(res => res.json())
+        .then(handleData)
 }
 
 function getFrontpageData() { //fetch all the default data
@@ -100,7 +100,7 @@ function getEvent() { //fetch the data of a specific event
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
 
-    fetch("http://liatalony.com/liatalony/wp-json/wp/v2/event/"+ id +"?_embed")
+    fetch("http://liatalony.com/liatalony/wp-json/wp/v2/event/" + id + "?_embed")
         .then(res => res.json())
         .then(showEvent)
 
@@ -130,6 +130,9 @@ function getEvent() { //fetch the data of a specific event
 
         const eventLocation = main_EventPage.querySelector("#event_location");
         eventLocation.textContent = `${oneEvent.where}`;
+
+        const longDescription = document.querySelector("#description-container");
+        longDescription.innerHTML = oneEvent.content.rendered;
     }
 }
 
@@ -141,18 +144,23 @@ function showPost(event) {
     const urlParams = new URLSearchParams(window.location.search);
     const about = urlParams.get("about");
     const category = urlParams.get("category");
-    const all_option = document.getElementById("all_optn");
+    const activityOptn = document.querySelector("#activity h2");
 
 
-    //if there is a category then highlight the link with that id
+
+    //if there is a category then it executes the following code
     if (category) {
+        //Select the element which has the id "categoryid14", for example
         const categoryid = document.querySelector(".sort-container #categoryid" + category);
-        console.log("categoryid + CATEGORY = " + "categoryid" + category)
-        console.log("ELEMENT " + document.getElementById("categoryid14"))
-        console.log("CATEGORYIDDDDDDDD is " + categoryid);
+        //adds a class called "active_option" that highlights the link
         categoryid.classList.add('active_option');
+        activityOptn.textContent = categoryid.textContent;
     } else {
+        const all_option = document.getElementById("all_optn");
+        //if there's not a category it means it is showing all the content so the
+        //link with id "all_optn" receives the class "active_option" to be highlighted
         all_option.classList.add('active_option');
+        activityOptn.textContent = "All";
     }
 
     console.log(event);
@@ -163,11 +171,16 @@ function showPost(event) {
 
     //3 textcontent & innerHTML
 
+    const eventImage = eventCopy.querySelector("img");
+
+
     const a = eventCopy.querySelector("a");
     a.href = "sub_page.html?id=" + event.id;
+    eventImage.addEventListener("click", function () {
+        window.location.href = "sub_page.html?id=" + event.id;
+    })
 
 
-    const eventImage = eventCopy.querySelector("img");
     const imagePath = event._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url;
     eventImage.src = imagePath;
 
@@ -206,9 +219,10 @@ function showPost(event) {
 
 
 
-//////////////////////////////////////////////////BUTTONS
+//////////////////////////////////////////////////BUTTONS for the options container
 
 const activityBTN = document.getElementById("activity");
+const activityHeader = document.querySelector("#activity h2");
 const activity_container = document.getElementById("activity-container")
 
 console.log(activity_container.style.display);
@@ -217,7 +231,7 @@ console.log(activity_container.style.display);
 activityBTN.addEventListener("click", function () {
     if (activity_container.style.display == "none") {
         activity_container.style.display = "flex";
-        activityBTN.style.color = "black";
+        activityHeader.style.color = "black";
         activityBTN.style.background = "white";
 
         console.log("Display is set to FLEX");
@@ -225,14 +239,14 @@ activityBTN.addEventListener("click", function () {
 
     } else if (activity_container.style.display == "flex") {
         activity_container.style.display = "none";
-        activityBTN.style.color = "white";
+        activityHeader.style.color = "white";
         activityBTN.style.background = "black";
 
         console.log("Display is set to NONE");
         console.log(activity_container.style.display);
     } else {
         activity_container.style.display = "flex";
-        activityBTN.style.color = "black";
+        activityHeader.style.color = "black";
         activityBTN.style.background = "white";
     }
 });

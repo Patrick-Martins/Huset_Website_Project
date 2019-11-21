@@ -37,7 +37,9 @@ scheduleLINK.addEventListener("click", function () {
 //////////////////////////////////////////////////BUTTONS
 
 const aboutOptBTN = document.getElementById("about_BT");
-const about_container = document.getElementById("options-about-container")
+const aboutHeader = document.querySelector("#about_BT h2");
+const about_container = document.getElementById("options-about-container");
+
 
 
 
@@ -45,7 +47,7 @@ aboutOptBTN.addEventListener("click", function () {
     if (about_container.style.display == "none") {
         about_container.style.display = "flex";
 
-        aboutOptBTN.style.color = "black";
+        aboutHeader.style.color = "black";
         aboutOptBTN.style.background = "white";
 
         console.log("Display is set to FLEX");
@@ -54,7 +56,7 @@ aboutOptBTN.addEventListener("click", function () {
     } else if (about_container.style.display == "flex") {
         about_container.style.display = "none";
 
-        aboutOptBTN.style.color = "white";
+        aboutHeader.style.color = "white";
         aboutOptBTN.style.background = "black";
 
         console.log("Display is set to NONE");
@@ -62,7 +64,7 @@ aboutOptBTN.addEventListener("click", function () {
     } else {
         about_container.style.display = "flex";
 
-        aboutOptBTN.style.color = "black";
+        aboutHeader.style.color = "black";
         aboutOptBTN.style.background = "white";
     }
 });
